@@ -121,16 +121,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartController.cs" />
-    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Depart.cs" />
-    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\MockDepart.cs" />
     <Compile Include="Models\MockDepartment.cs" />
     <Compile Include="Models\MockEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,10 +172,6 @@
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Department\List.cshtml" />
-    <Content Include="Views\Department\Create.cshtml" />
-    <Content Include="Views\Department\Edit.cshtml" />
-    <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Depart\List.cshtml" />
     <Content Include="Views\Depart\Create.cshtml" />
     <Content Include="Views\Depart\Edit.cshtml" />
