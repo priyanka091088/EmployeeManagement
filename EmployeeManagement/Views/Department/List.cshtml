@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EmployeeManagement.Models.Department>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DepartId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DepartId })
+        </td>
+    </tr>
+}
+
+</table>
