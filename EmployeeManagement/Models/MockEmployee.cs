@@ -23,6 +23,7 @@ namespace EmployeeManagement.Models
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("EmployeeCrud",con);
+               
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@mode", "GetEmpList");
                 _adapter = new SqlDataAdapter(cmd);
@@ -39,6 +40,12 @@ namespace EmployeeManagement.Models
                         obj.Address = Convert.ToString(_ds.Tables[0].Rows[i]["Address"]);
                         obj.Qualification = Convert.ToString(_ds.Tables[0].Rows[i]["Qualification"]);
                         obj.ContactNo = Convert.ToString(_ds.Tables[0].Rows[i]["ContactNo"]);
+                        obj.DepartId = Convert.ToInt32(_ds.Tables[0].Rows[i]["DepartId"]);
+                        obj.DepartName = Convert.ToString(_ds.Tables[0].Rows[i]["DepartName"]);
+                        obj.department = new Depart();
+                        obj.department.DepartId = Convert.ToInt32(_ds.Tables[0].Rows[i]["DepartId"]);
+                        obj.department.DepartName = Convert.ToString(_ds.Tables[0].Rows[i]["DepartName"]);
+                        
 
                         getEmpList.Add(obj);
                     }
@@ -63,6 +70,8 @@ namespace EmployeeManagement.Models
                 cmd.Parameters.AddWithValue("@EmpAddress", model.Address);
                 cmd.Parameters.AddWithValue("@EmpQualification", model.Qualification);
                 cmd.Parameters.AddWithValue("@EmpContactNo", model.ContactNo);
+                cmd.Parameters.AddWithValue("@DepId", model.DepartId);
+                cmd.Parameters.AddWithValue("@DepName", model.DepartName);
                 cmd.ExecuteNonQuery();
 
             }
@@ -91,8 +100,10 @@ namespace EmployeeManagement.Models
                         obj.Address = Convert.ToString(_ds.Tables[0].Rows[0]["Address"]);
                         obj.Qualification = Convert.ToString(_ds.Tables[0].Rows[0]["Qualification"]);
                         obj.ContactNo = Convert.ToString(_ds.Tables[0].Rows[0]["ContactNo"]);
-
-                 }
+                        obj.DepartId = Convert.ToInt32(_ds.Tables[0].Rows[0]["DepartId"]);
+                        obj.DepartName = Convert.ToString(_ds.Tables[0].Rows[0]["DepartName"]);
+                    
+                }
 
             }
 
@@ -115,7 +126,8 @@ namespace EmployeeManagement.Models
                 cmd.Parameters.AddWithValue("@EmpAddress", model.Address);
                 cmd.Parameters.AddWithValue("@EmpQualification", model.Qualification);
                 cmd.Parameters.AddWithValue("@EmpContactNo", model.ContactNo);
-                
+                cmd.Parameters.AddWithValue("@DepId", model.DepartId);
+                cmd.Parameters.AddWithValue("@DepName", model.DepartName);
                 cmd.ExecuteNonQuery();
 
             }

@@ -9,7 +9,8 @@ namespace EmployeeManagement.Controllers
 {
     public class EmployeeController : Controller
     {
-        private MockEmployee _employee;
+        private MockEmployee _employee = new MockEmployee();
+        private MockDepartment _department;
         // GET: Employee
         public ActionResult Index()
         {
@@ -18,40 +19,46 @@ namespace EmployeeManagement.Controllers
 
         public ActionResult List()
         {
-            _employee = new MockEmployee();
+            
             var model = _employee.GetEmployeeList();
             return View(model);
         }
 
         public ActionResult Create()
         {
+            _department = new MockDepartment();
+
+            ViewBag.DepartmentName = _department.GetAllDepartment();
             return View();
         }
         [HttpPost]
         public ActionResult Create(Employee model)
         {
-            _employee = new MockEmployee();
+           
+            _department = new MockDepartment();
+
+            ViewBag.DepartmentName = _department.GetAllDepartment();
 
             _employee.InsertEmployee(model);
             return RedirectToAction("List");
         }
         public ActionResult Edit(int id)
         {
-            _employee = new MockEmployee();
+            
+            _department = new MockDepartment();
 
+            ViewBag.DepartmentName = _department.GetAllDepartment();
             var model = _employee.GetEmployeeById(id);
             return View(model);
         }
         [HttpPost]
         public ActionResult Edit(Employee model) {
-            _employee = new MockEmployee();
 
             _employee.UpdateEmp(model);
             return RedirectToAction("List");
         }
         public ActionResult Delete(int id)
         {
-            _employee = new MockEmployee();
 
             _employee.DeleteEmp(id);
             return RedirectToAction("List");

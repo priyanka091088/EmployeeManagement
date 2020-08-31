@@ -49,7 +49,7 @@ namespace EmployeeManagement.Models
             return departList;
         }
 
-        public void InsertDepartment(Depart model)
+        public Depart InsertDepartment(Depart model)
         {
             using (SqlConnection con = new SqlConnection(connect))
             {
@@ -57,10 +57,10 @@ namespace EmployeeManagement.Models
                 SqlCommand cmd = new SqlCommand("DepartCrud", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@mode", "AddDepart");
-               // model.DepartId = departList.Max(x => x.DepartId) + 1;
-                //cmd.Parameters.AddWithValue("@DepId", model.DepartId);
                 cmd.Parameters.AddWithValue("@DepName", model.DepartName);
                 cmd.ExecuteNonQuery();
+
+                return model;
 
             }
         }

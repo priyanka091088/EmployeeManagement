@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Models\Depart.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeDepart.cs" />
     <Compile Include="Models\MockDepartment.cs" />
     <Compile Include="Models\MockEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +177,7 @@
     <Content Include="Views\Depart\Create.cshtml" />
     <Content Include="Views\Depart\Edit.cshtml" />
     <Content Include="Views\Depart\Delete.cshtml" />
+    <Content Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

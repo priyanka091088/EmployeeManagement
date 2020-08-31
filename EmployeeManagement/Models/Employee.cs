@@ -19,5 +19,8 @@ namespace EmployeeManagement.Models
         public string Qualification { get; set; }
         [Required]
         public string ContactNo { get; set; }
+        public int DepartId { get; set; }
+        public string DepartName { get; set; }
+        public Depart department { get; set; }
     }
 }
